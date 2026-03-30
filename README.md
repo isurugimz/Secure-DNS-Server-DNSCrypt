@@ -1,25 +1,37 @@
-🔐 Secure DNS Server Configuration
-📌 Introduction
+# 🔐 Secure DNS Server Configuration
 
+## 📌 Introduction
 This project demonstrates how to configure a secure DNS server using the DNSCrypt protocol. The main goal is to protect DNS queries from threats such as surveillance and spoofing.
 
 The system uses a Linux-based server to:
+- Provide DNS resolution for a local network  
+- Securely forward queries to an upstream resolver  
+- Ensure privacy and data integrity  
 
-Provide DNS resolution for a local network
-Securely forward queries to an upstream resolver
-Ensure privacy and data integrity
-🏗️ System Architecture & Environment
-Component	Details
-Server OS	Kali Linux (Kernel 6.x)
-Server IP	192.168.45.82
-Client OS	Windows 11
-🛠️ Software Components
-Unbound → Local DNS resolver with caching and validation
-DNSCrypt-proxy → Encrypts DNS queries before sending to the internet
-🚀 Implementation Steps
-1️⃣ Verify Services
+---
 
+## 🏗️ System Architecture & Environment
+
+| Component  | Details                  |
+|------------|--------------------------|
+| Server OS  | Kali Linux (Kernel 6.x)  |
+| Server IP  | 192.168.45.82            |
+| Client OS  | Windows 11               |
+
+---
+
+## 🛠️ Software Components
+
+- **Unbound** → Local DNS resolver with caching and validation  
+- **DNSCrypt-proxy** → Encrypts DNS queries before sending to the internet  
+
+---
+
+## 🚀 Implementation Steps
+
+### 1️⃣ Verify Services
 Ensure both services are running:
+
 
 sudo systemctl status unbound dnscrypt-proxy
 2️⃣ Check Listening Ports
@@ -45,10 +57,12 @@ A DNS leak test was performed using:
 Traffic Encryption: DNS queries are encrypted using DNSCrypt
 Privacy Protection: ISP cannot see requested domains
 No DNS Leaks: Client does not fall back to default DNS
+
 📊 Outcome
 Secure DNS resolution implemented successfully
 Improved privacy and protection against spoofing attacks
 Verified encrypted communication with upstream resolver
+
 📚 Future Improvements
 Add firewall rules (UFW/iptables)
 Implement DNSSEC validation
