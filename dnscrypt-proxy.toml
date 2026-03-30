@@ -1,0 +1,32 @@
+# /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+# DNSCrypt client proxy configuration
+
+# Upstream resolvers (Forcing Cloudflare as per the DNS Leak Test results)
+server_names = ['cloudflare', 'cloudflare-ipv6']
+
+# Local listening addresses (Listening on localhost port 5353 as per netstat output)
+listen_addresses = ['127.0.0.1:5353', '[::1]:5353']
+
+# Maximum number of simultaneous client connections
+max_clients = 250
+
+# Require servers to support DNSSEC
+require_dnssec = true
+
+# Require servers to not log user queries
+require_nolog = true
+
+# Use servers that are accessible over standard ports to avoid being blocked
+require_nofilter = true
+
+# Network settings
+[network]
+# Connect to the servers via IPv4
+ipv4_routing = true
+# Disable IPv6 routing if the local network doesn't fully support it
+ipv6_routing = false
+
+# Enable caching to improve performance
+[cache]
+cache = true
+cache_size = 512
