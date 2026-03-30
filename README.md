@@ -34,21 +34,22 @@ Ensure both services are running:
 
 
 sudo systemctl status unbound dnscrypt-proxy
-2️⃣ Check Listening Ports
+### 2️⃣ Check Listening Ports
 
 Verify correct port usage:
 
 sudo netstat -tulnp | grep -E '53|5353'
 Port 53 → Unbound
 Port 5353 → DNSCrypt-proxy
-3️⃣ Test Local DNS Resolution
+### 3️⃣ Test Local DNS Resolution
 nslookup google.com 127.0.0.1
-4️⃣ Configure Windows Client
+### 4️⃣ Configure Windows Client
 
 Set the DNS server manually:
 
 netsh interface ip set dns "Wi-Fi" static 192.168.45.82
-🛡️ Security Validation
+
+### 🛡️ Security Validation
 
 A DNS leak test was performed using:
 👉 https://www.dnsleaktest.com/
